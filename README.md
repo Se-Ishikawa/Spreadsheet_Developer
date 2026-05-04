@@ -1,11 +1,8 @@
 # Spreadsheet Developer
-
-A lightweight spreadsheet-style desktop application built with Python and PySide6.
-
+A spreadsheet-style desktop application built with Python and PySide6.
 The project is designed as a customizable spreadsheet development tool with a plugin-oriented structure.
 
 ## Features
-
 - Spreadsheet-like table UI
 - Formula bar and basic formula evaluation
 - Multiple sheet tabs
@@ -15,8 +12,6 @@ The project is designed as a customizable spreadsheet development tool with a pl
 - Plugin loading structure with example plugin
 
 ## Project Structure
-
-```text
 spreadsheet_developer/
 ├── main.py
 ├── app/                 # Main UI components
@@ -29,7 +24,6 @@ spreadsheet_developer/
 ├── ui_pack.py           # Theme/icon helper functions
 ├── requirements.txt
 └── README.md
-```
 
 ## Requirments
 PySide6
@@ -38,10 +32,6 @@ openpyxl
 matplotlib
 
 ## Plugin Concept
-
 Plugins can be added under the `plugins/` directory.  
 The included `example_stats_plugin.py` can be used as a starting template for custom functions.
 
-## Notes
-
-This repository intentionally excludes generated cache files such as `__pycache__/` and `*.pyc`.
