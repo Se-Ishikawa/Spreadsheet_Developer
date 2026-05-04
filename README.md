@@ -25,7 +25,7 @@ spreadsheet_developer/
 ├── requirements.txt
 └── README.md
 
-## Requirments
+## Requirements
 PySide6
 pandas
 openpyxl
