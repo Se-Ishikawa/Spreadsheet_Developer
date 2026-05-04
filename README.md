@@ -31,17 +31,11 @@ spreadsheet_developer/
 └── README.md
 ```
 
-## Installation
-
-```bash
-pip install -r requirements.txt
-```
-
-## Run
-
-```bash
-python main.py
-```
+## Requirments
+PySide6
+pandas
+openpyxl
+matplotlib
 
 ## Plugin Concept
 
