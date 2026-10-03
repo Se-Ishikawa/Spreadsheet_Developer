@@ -9,6 +9,8 @@ class SheetTabs(QWidget):
     addSheetRequested = Signal()
     renameSheetRequested = Signal(int)
     deleteSheetRequested = Signal(int)
+    duplicateSheetRequested = Signal(int)
+    sheetMoved = Signal(int, int)
 
     def __init__(self, parent=None) -> None:
         super().__init__(parent)
@@ -17,12 +19,13 @@ class SheetTabs(QWidget):
         layout.setSpacing(4)
 
         self.tab_bar = QTabBar()
-        self.tab_bar.setMovable(False)
+        self.tab_bar.setMovable(True)
         self.tab_bar.setExpanding(False)
         self.tab_bar.currentChanged.connect(self._emit_current_sheet)
         self.tab_bar.setContextMenuPolicy(Qt.CustomContextMenu)
         self.tab_bar.customContextMenuRequested.connect(self._show_context_menu)
         self.tab_bar.tabBarDoubleClicked.connect(self.renameSheetRequested.emit)
+        self.tab_bar.tabMoved.connect(self.sheetMoved.emit)
 
         self.add_button = QPushButton("+")
         self.add_button.setFixedWidth(28)
@@ -62,9 +65,12 @@ class SheetTabs(QWidget):
             return
         menu = QMenu(self)
         rename_action = menu.addAction("Rename")
+        duplicate_action = menu.addAction("Duplicate")
         delete_action = menu.addAction("Delete")
         action = menu.exec(self.tab_bar.mapToGlobal(pos))
         if action == rename_action:
             self.renameSheetRequested.emit(index)
+        elif action == duplicate_action:
+            self.duplicateSheetRequested.emit(index)
         elif action == delete_action:
             self.deleteSheetRequested.emit(index)

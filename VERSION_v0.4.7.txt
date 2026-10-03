@@ -1,0 +1,19 @@
+Research Spreadsheet v0.4.7 Stable
+
+UI Stability final release.
+
+Kept from the validated v0.4.6 architecture:
+- RibbonGroup is created with RibbonPage as its parent.
+- Ribbon groups remain ordinary non-native child widgets.
+- Responsive overflow does not reparent ribbon groups.
+- Resize-driven overflow updates remain debounced.
+- v0.4.1 startup model guard and v0.4 reliability improvements are retained.
+
+Removed from the diagnostic build:
+- application-wide QWidget event filter
+- qInstallMessageHandler geometry interception
+- ribbon_diagnostics.log generation
+- startup top-level widget snapshots
+- RibbonGroup lifecycle/resize diagnostic logging
+
+This is the normal-operation UI Stability build.

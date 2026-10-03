@@ -1,0 +1,27 @@
+Research Spreadsheet v0.4.4 - Ribbon Lifetime Stability
+
+Focus: Windows QWindowsWindow::setGeometry / RibbonGroupClassWindow warnings.
+
+Changes
+- RibbonPage objects are parented to the QTabWidget at construction time.
+- Every RibbonGroup is parented to its final RibbonPage at construction time.
+- Ribbon QToolButtons are parented to their RibbonGroup at construction time.
+- Responsive grid rebuilds no longer call setParent() on buttons.
+- Overflow continues to hide/show actions only; it never moves RibbonGroup widgets.
+- v0.4.3 child-widget/native-window safeguards remain in place.
+
+Rationale
+A QWidget constructed with no parent is temporarily a top-level widget. On Windows,
+that lifetime can create a native QWidgetWindow before later reparenting. Display
+scaling then exposes native MINMAXINFO constraints and can produce the observed
+setGeometry warnings. v0.4.4 removes parentless lifetime from the ribbon tree.
+
+Validation performed
+- Python compileall: PASS
+- Static scan: no parentless RibbonPage constructors in app ribbon build
+- Static scan: no parentless RibbonGroup constructors in app ribbon build
+- Static scan: no parentless QToolButton constructors in ribbon.py
+
+Runtime note
+PySide6 GUI runtime is not available in the build environment, so Windows-native
+geometry behavior must be confirmed on the target PC.

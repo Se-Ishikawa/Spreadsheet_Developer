@@ -1,0 +1,16 @@
+Research Spreadsheet v0.5.0 - Plugin Framework
+
+Base: v0.4.7 UI Stability Stable
+
+Added:
+- Plugin discovery from /plugins
+- Plugin API v1.0 and restricted PluginContext
+- Plugins menu and Plugin Manager
+- Persistent enable/disable state (restart to apply)
+- Plugin load failure isolation/logging
+- Selection/current-sheet data access
+- Result sheet creation and cell writing APIs
+- Example plugin kept outside /plugins so no analysis feature is enabled by default
+- Plugin SDK documentation
+
+No thin-film/XRD/XRF/wafer-map analysis plugin is bundled yet. This release is framework-only by design.

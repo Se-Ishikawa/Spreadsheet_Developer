@@ -1,37 +1,56 @@
-# Spreadsheet Developer
-A spreadsheet-style desktop application built with Python and PySide6.
-The project is designed as a customizable spreadsheet development tool with a plugin-oriented structure.
+# PySide Research Spreadsheet
 
-## Features
-- Spreadsheet-like table UI
-- Formula bar and basic formula evaluation
-- Multiple sheet tabs
-- CSV / XLSX import and export
-- Chart dialog support
-- Theme and icon assets
-- Plugin loading structure with example plugin
+Excel ライクな軽量表計算ソフトを目標にした PySide ベースのデスクトップアプリです。
 
-## Project Structure
-spreadsheet_developer/
-├── main.py
-├── app/                 # Main UI components
-├── chart/               # Chart dialog and plotting functions
-├── formula_engine/      # Formula evaluator and functions
-├── models/              # Workbook and spreadsheet model
-├── plugins/             # Plugin API, manager, and example plugin
-├── services/            # CSV, XLSX, project, and cell utilities
-├── ui_assets/           # Icons and QSS themes
-├── ui_pack.py           # Theme/icon helper functions
-├── requirements.txt
-└── README.md
+## Run
 
-## Requirements
-PySide6
-pandas
-openpyxl
-matplotlib
+```bash
+pip install -r requirements.txt
+python main.py
+```
 
-## Plugin Concept
-Plugins can be added under the `plugins/` directory.  
-The included `example_stats_plugin.py` can be used as a starting template for custom functions.
+## 現在の主な機能
+- Ribbon ライク UI（Home / Insert / Data / Chart）
+- 複数シートの追加 / 名前変更 / 複製 / 削除 / 並べ替え
+- 数式バーと A1 形式の名前ボックス
+- Undo / Redo
+- CSV / XLSX / JSON project の読込保存
+- フリーズペイン基礎（先頭行 / 先頭列）
+- 基本的なグラフ作成ダイアログ
 
+## Sprint A
+- Find / Replace（Ctrl+F）
+- 行 / 列の挿入削除
+- 列幅 / 行高変更と Auto Fit
+- paste / clear / 行列編集まで含めた Undo / Redo
+
+## Sprint B
+- Fill Down / Fill Right
+- クリップボード貼り付け時の行列自動拡張
+- シート複製
+- タブのドラッグ並べ替え
+- フリーズペイン基礎
+
+## Sprint C
+- 文字書式
+  - Bold / Italic / Underline
+  - Font Size
+  - Text Color / Fill Color
+- 配置
+  - Align Left / Center / Right
+- 表示形式
+  - General / Number / Percent / Currency / Date / Time
+  - Increase / Decrease Decimals
+  - Thousands Separator
+- 罫線
+  - All Borders
+  - Outline Borders
+  - No Borders
+- Clear Formatting
+- project 保存時のセル書式保持
+- XLSX の基本書式読込 / 保存（フォント、塗りつぶし、配置、罫線、表示形式の一部）
+
+## Notes
+- Excel 完全互換ではありません。
+- 数式評価は内蔵関数ベースです。
+- CSV は値中心です。セル書式を保持したい場合は JSON project または XLSX を推奨します。

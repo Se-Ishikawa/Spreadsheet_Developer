@@ -5,8 +5,6 @@ import math
 from dataclasses import dataclass
 from typing import Any, Sequence
 
-from app.app_info import APP_NAME
-
 from matplotlib.backends.backend_qtagg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
 from PySide6.QtCore import Qt, Signal
@@ -56,7 +54,7 @@ class ChartDialog(QDialog):
         initial_config: dict[str, Any] | None = None,
     ) -> None:
         super().__init__(parent)
-        self.setWindowTitle(f"Create Chart - {APP_NAME}")
+        self.setWindowTitle("Create Chart - Phase 3")
         self.resize(1480, 940)
         self.setMinimumSize(1120, 680)
         self.setSizeGripEnabled(True)

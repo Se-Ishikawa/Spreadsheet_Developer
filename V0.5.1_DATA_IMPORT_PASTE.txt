@@ -1,0 +1,16 @@
+Research Spreadsheet v0.5.1 — Data Import & Paste
+
+Added:
+- Excel/TSV multi-cell paste with automatic tab/newline parsing
+- Automatic sheet expansion when pasted data exceeds current rows/columns
+- One-command Undo for pasted cell values
+- Paste Special: values/formulas, formulas only, formats (internal copy), transpose, skip blanks, auto-fit
+- Paste as New Sheet
+- CSV/TSV/TXT drag & drop
+- Import Preview with encoding/delimiter/target selection
+- UTF-8 / CP932 (Shift-JIS) / UTF-16 / Latin-1 import options
+- Auto-fit imported/pasted columns
+
+Notes:
+- Formats-only paste is available for cells copied inside Research Spreadsheet. External Excel clipboard formatting is not imported in v0.5.1.
+- 'First row is header' is informational in v0.5.1: the row remains in the sheet.

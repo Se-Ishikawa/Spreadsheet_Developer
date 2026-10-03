@@ -33,3 +33,13 @@ class FormulaBar(QWidget):
 
     def set_formula_text(self, text: str) -> None:
         self.formula_edit.setText(text)
+    def focus_formula(self, select_all: bool = False) -> None:
+        self.formula_edit.setFocus()
+        if select_all:
+            self.formula_edit.selectAll()
+
+    def focus_name_box(self, select_all: bool = False) -> None:
+        self.name_box.setFocus()
+        if select_all:
+            self.name_box.selectAll()
+
